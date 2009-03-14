@@ -1,8 +1,8 @@
 Yaripe (Yet Another RESTful in_place_edit)
 ===========================================
 
-Yaripe is an Ajax Inplace Editor solution, that uses the RESTful controllers, and JQuery, to make a better solution
-for in place edit with rails...
+Yaripe is a Rails plugin for Inplace Edit solution, that uses the RESTful controllers, and JQuery, to make a complete solution
+of in place edit...
 
 This Plugin is based in REST in Place (http://github.com/janv/rest_in_place) and in better-edit-in-place (http://github.com/nakajima/better-edit-in-place/tree/master) ,
 Thanks for the ideas and for the code, guys!
@@ -21,7 +21,7 @@ JRails (http://github.com/aaronchi/jrails/tree/master)
 
 
 Examples
-----------
+-----------
 
 Your routes.rb:
 
@@ -33,6 +33,7 @@ Just make the Update action of your controller respond json:
 
 Example:
 
+class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
@@ -46,7 +47,7 @@ Example:
       end
     end
   end
-
+end
 
 Add the Javascript to your views:
 
@@ -83,8 +84,7 @@ TODO
 
 Contribute
 ------------
-
 Please, if you have any questions, contributions or suggestions, please, drop me a message or send a pull request..
 
 
-Copyright (c) 2008 [Thiago Pradi], released under the MIT license
+Copyright (c) 2009 [Thiago Pradi], released under the MIT license
