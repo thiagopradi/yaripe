@@ -33,21 +33,21 @@ Just make the Update action of your controller respond json:
 
 Example:
 
-class UsersController < ApplicationController
-  def update
-    @user = User.find(params[:id])
+    class UsersController < ApplicationController
+      def update
+        @user = User.find(params[:id])
 
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        flash[:notice] = 'User was successfully updated.'
-        format.html { redirect_to(@user) }
-        format.json { render :json => @user }
-      else
-        format.html { render :action => "edit" }
+        respond_to do |format|
+          if @user.update_attributes(params[:user])
+            flash[:notice] = 'User was successfully updated.'
+            format.html { redirect_to(@user) }
+            format.json { render :json => @user }
+          else
+            format.html { render :action => "edit" }
+          end
+        end
       end
     end
-  end
-end
 
 Add the Javascript to your views:
 
