@@ -25,7 +25,7 @@ jQuery.fn.yaripe = function(url, objectName, attributeName) {
             break;
         }
 
-        e.html('<form action="javascript:void(0)" style="display:inline;">' + input + '<input name="submit" value="Save" type="submit"> <input name="cancel" id="cancel" type="button" value="Cancel"></form>');
+        e.html('<form action="javascript:void(0)" style="display:inline;" onkeypress="cancelInPlaceEdit(event, this);">' + input + '<input name="submit" value="Save" type="submit"> <input name="cancel" id="cancel" type="button" value="Cancel"></form>');
         e.find("input")[0].select();
         e.unbind('click');
 
@@ -82,3 +82,14 @@ jQuery.fn.yaripe = function(url, objectName, attributeName) {
             e.yaripe(url, obj, attrib);
         });
     });
+    
+function cancelInPlaceEdit(e, form) {
+   var kC  = (window.event) ?    // MSIE or Firefox?
+              event.keyCode : e.keyCode;
+   var Esc = (window.event) ?   
+             27 : e.DOM_VK_ESCAPE // MSIE : Firefox
+   if(kC==Esc)
+   {
+     jQuery("#cancel",form).click();
+   }
+}
