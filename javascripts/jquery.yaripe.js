@@ -25,18 +25,18 @@ jQuery.fn.yaripe = function(url, objectName, attributeName) {
             break;
         }
 
-        e.html('<form action="javascript:void(0)" style="display:inline;" onkeypress="cancelInPlaceEdit(event, this);">' + input + '<input name="submit" value="Save" type="submit"> <input name="cancel" id="cancel" type="button" value="Cancel"></form>');
+        e.html('<form id="inplace" action="javascript:void(0)" style="display:inline;" onkeypress="cancelInPlaceEdit(event, this);">' + input + '<input name="submit" value="Save" type="submit"> <input name="cancel" id="cancel" type="button" value="Cancel"></form>');
         e.find("input")[0].select();
         e.unbind('click');
 
         $(this).find("#cancel").click(function(event){
-            $("form").remove();
+            $("form#inplace").remove();
             e.html(oldValue);
             event.stopPropagation();
             e.bind('click',clickFunction);
         })
 
-        e.find("form").submit(function(){
+        e.find("form#inplace").submit(function(){
             var value = e.find("#inplace_input").val();
             var value1 = $("#inplace_input").val();
             var value2 = $("#inplace_input").next().val();
