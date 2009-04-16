@@ -9,7 +9,7 @@ module Yaripe
 
     options[:attribute] = field
 
-    options[:object] = record.class.base_class.to_s == "Profile"? "#{record.class.base_class.to_s.downcase}" : "#{record.class.to_s.downcase}"
+    options[:object] = record.class.to_s.downcase
 
     options[:rel] ||= options.delete(:url)
 
