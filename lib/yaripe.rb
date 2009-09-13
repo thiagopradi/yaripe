@@ -31,8 +31,6 @@ module Yaripe
     classes << 'yaripe'
     options[:class] = classes.uniq.join(' ')
 
-    options[:token] = form_authenticity_token
-
     record.send(field).to_s.empty? ? value = "Click to edit..." : value = record.send(field)
 
     content_tag(options.delete(:tag), value, options)

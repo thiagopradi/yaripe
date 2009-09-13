@@ -2,8 +2,7 @@ jQuery.fn.yaripe = function(url, objectName, attributeName) {
     var e = this;
     function clickFunction() {
         var oldValue = e.html();
-        rails_authenticity_token = e.attr("token");
-
+ 
         switch(e.attr("field_type")) {
         case "textarea":
             var input = '<textarea  id="inplace_input" cols=' + e.attr("textarea_cols") + ' rows=' + e.attr("textarea_rows") + '>' + oldValue + ' </textarea>';
@@ -44,9 +43,9 @@ jQuery.fn.yaripe = function(url, objectName, attributeName) {
             e.html("saving...");
 
             if (e.attr("field_type") == "date") {
-                var datavalue = "_method=put&"+objectName+"["+attributeName+"(1i)]="+ value1 + "&" + objectName+"["+attributeName+"(2i)]="+ value2 + "&" + objectName+"["+attributeName+"(3i)]="+ value3 + "&authenticity_token=" + rails_authenticity_token;
+                var datavalue = "_method=put&"+objectName+"["+attributeName+"(1i)]="+ value1 + "&" + objectName+"["+attributeName+"(2i)]="+ value2 + "&" + objectName+"["+attributeName+"(3i)]="+ value3;
             } else {
-                var datavalue = "_method=put&"+objectName+"["+attributeName+"]="+encodeURIComponent(value)+ "&authenticity_token="+ rails_authenticity_token;
+                var datavalue = "_method=put&"+objectName+"["+attributeName+"]="+encodeURIComponent(value);
             }
 
             jQuery.ajax({
