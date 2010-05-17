@@ -53,7 +53,7 @@ jQuery.fn.yaripe = function(url, objectName, attributeName) {
                 "type" : "post",
                 "data" : datavalue,
                 "success" : function(result){
-                    var array = eval('(' + result + ')' );
+                    var array = eval(result);
                     jQuery.each(array, function(i) {
                         element = i;
                     });
